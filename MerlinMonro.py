@@ -4,33 +4,24 @@ image = Image.open("monro.jpg")
 
 red, green, blue = image.split() 
 
-red_channel = red
-green_channel = green
-blue_channel = blue
+new_image = Image.merge("RGB", (red, green, blue))
 
-new_image = Image.merge("RGB", (red_channel, green_channel, blue_channel))
-
-image1 = red_channel
-image2 = red_channel
-
+image1 = red
+image2 = red
 
 cmyk_image1 = image1.convert("CMYK")
-
 cmyk_image2 = image2.convert("CMYK")
-
 coordinates = (101, 0, cmyk_image1.width, cmyk_image1.height)
 cropped_left = cmyk_image1.crop(coordinates)
 
 coordinates = (51, 0, cmyk_image1.width - 50, cmyk_image1.height)
 cropped_middle = cmyk_image2.crop(coordinates)
 
-
 image3 = Image.blend(cropped_left, cropped_middle, 0.5)
-
 red_channel_displaced = image3
 
-image1 = blue_channel
-image2 = blue_channel
+image1 = blue
+image2 = blue
 
 cmyk_image1 = image1.convert("CMYK")
 cmyk_image2 = image2.convert("CMYK")
@@ -45,7 +36,7 @@ image3 = Image.blend(cropped_right, cropped_middle, 0.5)
 
 blue_channel_dicplaced = image3
 
-image1 = green_channel
+image1 = green
 cmyk_image1 = image1.convert("CMYK")
 
 coordinates = (71, 0, cmyk_image1.width - 30, cmyk_image1.height)
